@@ -1,7 +1,7 @@
 (jbuild_version 1)
 (library
-  ((name mtime_os)
-   (public_name mtime.os)
+  ((name mtime_clock)
+   (public_name mtime.clock.os)
    (libraries (mtime))
    (modules (
 mtime_clock
