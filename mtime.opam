@@ -5,18 +5,17 @@ maintainer: ["Daniel Bünzli <daniel.buenzl i@erratique.ch>"]
 authors: ["The mtime programmers"]
 homepage: "https://erratique.ch/software/mtime"
 doc: "https://erratique.ch/software/mtime/doc/"
-dev-repo: "git+https://erratique.ch/repos/mtime.git"
+dev-repo: "git+https://github.com/dune-universe/mtime.git"
 bug-reports: "https://github.com/dbuenzli/mtime/issues"
 license: ["ISC"]
 tags: ["time" "monotonic" "system" "org:erratique"]
-depends: ["ocaml" {>= "4.03.0"}
-          "ocamlfind" {build}
-          "ocamlbuild" {build & != "0.9.0"}
-          "topkg" {build & >= "1.0.3"}]
+depends: [
+  "dune"
+  "ocaml" {>= "4.03.0"}
+]
 depopts: ["js_of_ocaml"]
 conflicts: ["js_of_ocaml" {<= "3.3.0"}]
-build: [["ocaml" "pkg/pkg.ml" "build" "--dev-pkg" "%{dev}%"
-          "--with-js_of_ocaml" "%{js_of_ocaml:installed}%"]]
+build: [[ "dune" "build" "-p" name ]]
 description: """
 Mtime has platform independent support for monotonic wall-clock time
 in pure OCaml. This time increases monotonically and is not subject to
